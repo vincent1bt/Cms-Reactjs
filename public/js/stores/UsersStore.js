@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var Constants = require('../constants/Constants');
+var AppDispatcher = require('dispatcher/AppDispatcher');
+var Constants = require('constants/Constants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
@@ -13,7 +13,7 @@ var _users = {};
 var usersStore =  assign({}, EventEmitter.prototype, {
 
   init: function(rawItems) {
-    _action = "isListing"; 
+    _action = "isListing";
     _users = {};
     rawItems.forEach(function(item) {
       _users[item._id] = {
@@ -27,7 +27,7 @@ var usersStore =  assign({}, EventEmitter.prototype, {
       _currentID = allChrono[0]._id;
     }
   },
-  computeCurrent:function(){    
+  computeCurrent:function(){
       var allChrono = this.getAllChrono();
       _currentID = allChrono[0]._id;
       console.log(_currentID)
@@ -102,7 +102,7 @@ usersStore.dispatchToken = AppDispatcher.register(function(payload) {
         _currentID = action.item._id;
       }
       _users[action.item._id] = action.item;
-      _action = "isListing";    
+      _action = "isListing";
       usersStore.emitChange();
       break;
     case ActionTypes.DELETE_USER:

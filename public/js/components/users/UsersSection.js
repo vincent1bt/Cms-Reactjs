@@ -1,19 +1,19 @@
 var React = require('react');
 
-var usersStore = require('../../stores/UsersStore');
-var viewActor = require('../../actions/users/UsersViewActors');
-var serverActor = require('../../actions/users/UsersServerActors');
+var usersStore = require('stores/UsersStore');
+var viewActor = require('actions/users/UsersViewActors');
+var serverActor = require('actions/users/UsersServerActors');
 
-var UsersItem = require('./UsersItem.react')
-var UsersSearch = require('./UsersSearch.react')
-var UsersNew = require('./UsersNew.react')
-var UsersEdit = require('./UsersEdit.react')
+var UsersItem = require('components/users/UsersItem.js')
+var UsersSearch = require('components/users/UsersSearch.js')
+var UsersNew = require('components/users/UsersNew.js')
+var UsersEdit = require('components/users/UsersEdit.js')
 
 function getState() {
   return {
   		current: usersStore.getCurrent(),
   		users: usersStore.getAllChrono(),
-  		action:	usersStore.getAction()   		
+  		action:	usersStore.getAction()
   };
 }
 
@@ -22,7 +22,7 @@ module.exports =  React.createClass({
 		return getState();
 	},
 	componentDidMount: function() {
-    	usersStore.addChangeListener(this._onChange);	
+    	usersStore.addChangeListener(this._onChange);
     	serverActor.get();
   	},
 	componentWillUnmount: function() {
@@ -45,16 +45,16 @@ module.exports =  React.createClass({
   		this.setState(getState());
   	},
   	render: function() {
-  		
+
   		var users = this.state.users.map(function(user){
 	  			return(
-	  					<UsersItem 
+	  					<UsersItem
 	  					key={user._id}
-	  					current = {user._id == this.state.current._id} 
+	  					current = {user._id == this.state.current._id}
 	  					user={user} />
 	  				)
 	  			},this);
-  		 
+
 
 	    return (
 	      <div className="UsersSection">
@@ -63,13 +63,13 @@ module.exports =  React.createClass({
 	      			{this.state.action == "isListing"?<input type="submit" value="edit" onClick={this._edit} />:null}
 	      			{this.state.action == "isListing"?<input type="submit" value="delete" onClick={this._delete} />:null}
 	      			{this.state.action != "isListing"?<input type="submit" value="cancel" onClick={this._cancel} />:null}
-	      			
+
 	      		</div>
 	      		{this.state.action=="isCreating"?<UsersNew /> : null}
 	      		{this.state.action=="isEditing"?<UsersEdit user={this.state.current} />:null}
 	      		{this.state.action=="isListing"?<UsersSearch />:null}
 	      		{this.state.action=="isListing"?<div className="UsersFeed">{users}</div>:null}
-	      		
+
 	      </div>
 	    );
   	},

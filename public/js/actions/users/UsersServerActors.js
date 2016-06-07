@@ -1,5 +1,5 @@
-var AppDispatcher = require('../../dispatcher/AppDispatcher');
-var Constants = require('../../constants/Constants');
+var AppDispatcher = require('dispatcher/AppDispatcher');
+var Constants = require('constants/Constants');
 var request = require("superagent");
 
 

@@ -1,6 +1,6 @@
 var React = require('react');
 
-var viewActor = require('../../actions/users/UsersViewActors');
+var viewActor = require('actions/users/UsersViewActors');
 
 
 module.exports =  React.createClass({
@@ -18,7 +18,7 @@ module.exports =  React.createClass({
 					<h3>{this.props.user.username}</h3>
 	      		</div>
 	      		{this.props.current?body:null}
-	      		
+
 	      </div>
 	    );
   	},

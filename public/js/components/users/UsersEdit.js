@@ -1,5 +1,5 @@
 var React = require('react');
-var ServerActor = require('../../actions/users/UsersServerActors');
+var ServerActor = require('actions/users/UsersServerActors');
 
 module.exports =  React.createClass({
 	getInitialState:function(){

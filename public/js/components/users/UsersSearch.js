@@ -1,5 +1,5 @@
 var React = require('react');
-var ServerActor = require('../../actions/users/UsersServerActors');
+var ServerActor = require('actions/users/UsersServerActors');
 
 module.exports =  React.createClass({
 	getInitialState:function(){
@@ -10,7 +10,7 @@ module.exports =  React.createClass({
 	_search: function(event){
 		this.setState({search: event.target.value});
 		if(event.target.value.length > 0){
-			
+
 			ServerActor.search("name",event.target.value)
 		}else{
 			ServerActor.get();

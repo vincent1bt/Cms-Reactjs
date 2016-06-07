@@ -1,5 +1,5 @@
-var AppDispatcher = require('../../dispatcher/AppDispatcher');
-var Constants = require('../../constants/Constants');;
+var AppDispatcher = require('dispatcher/AppDispatcher');
+var Constants = require('constants/Constants');;
 
 var ActionTypes = Constants.ActionTypes;
 
@@ -15,7 +15,7 @@ module.exports = {
 	    AppDispatcher.handleViewAction({
 	      type: ActionTypes.EDIT_USER,
 	    });
-	},	
+	},
 	new: function() {
 	    AppDispatcher.handleViewAction({
 	      type: ActionTypes.NEW_USER,
@@ -24,7 +24,7 @@ module.exports = {
 	cancel: function() {
 	    AppDispatcher.handleViewAction({
 	      type: ActionTypes.CANCEL_USER,
-	      	      
+
 	    });
 	},
 

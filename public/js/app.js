@@ -1,6 +1,6 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    Cms = require('./components/Cms.react');
+    Cms = require('components/Cms.js');
 
 // export for http://fb.me/react-devtools, only in development mode
 if (process.env.NODE_ENV === 'development') {

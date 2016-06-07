@@ -1,6 +1,5 @@
-//Cms 
+//Cms
 var React = require('react');
-var UsersSection = require("./users/UsersSection.react");
 
 module.exports = React.createClass({
 	getInitialState:function(){
@@ -21,7 +20,7 @@ module.exports = React.createClass({
   			default:
   				component = null
   		}
-  		
+
 	    return (
 	      <div className="Nemesis">
 	      	<nav>
@@ -33,6 +32,5 @@ module.exports = React.createClass({
 	      </div>
 	    );
   	}
-  	
-});
 
+});

@@ -24,26 +24,19 @@
     "superagent": "^1.1.0"
   },
   "devDependencies": {
-    "browserify": "*",
-    "envify": "*",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
     "esprima-fb": "^13001.1001.0-dev-harmony-fb",
     "jscs": "^1.11.3",
     "jshint": "^2.6.3",
-    "reactify": "*",
-    "uglify-js": "*",
-    "watchify": "*"
+    "webpack": "^1.13.1"
   },
   "scripts": {
-    "build-dev": "watchify public/js/app.js -o public/js/bundle.js -d -v",
-    "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js",
+    "build-dev": "webpack --progress --profile --colors -w",
+    "build-pro": "NODE_ENV=production webpack --progress --colors -p --config webpack.production.config.js",
     "check-hints": "jshint ./src ",
     "check-code-style": "jscs ./src --max-errors 5 --verbose"
-  },
-  "browserify": {
-    "transform": [
-      "reactify",
-      "envify"
-    ]
   },
   "license": "MIT"
 }
